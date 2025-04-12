@@ -324,9 +324,8 @@ void handle_user_input(const char* input) {
         case 'q':
             cleanup_parent();
             exit(EXIT_SUCCESS);
-        default:
-            printf("Unknown command: %s\n", input);
-            printf("Available commands:\n");
+            break;
+        case '?':
             printf("  + : Create child\n  - : Remove last child\n");
             printf("  l : List processes\n  k : Kill all children\n");
             printf("  s : Disable all output\n  g : Enable all output\n");
@@ -334,6 +333,10 @@ void handle_user_input(const char* input) {
             printf("  g<num> : Enable output for child <num>\n");
             printf("  p<num> : Request output from child <num>\n");
             printf("  q : Quit\n");
+            break;
+        default:
+            printf("Unknown command: %s\n", input);
+            break;
     }
 }
 
